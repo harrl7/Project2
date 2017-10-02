@@ -54,12 +54,13 @@ img {
 	background-color: var(--col-dk-blue);
 	padding: 20px 5px;
 	width: 100%;
-	filter: opacity(30%);
+	filter: opacity(70%) blur(5px);
 }
 
 #navbar .inner {
 	margin: 0 auto;
-	width: 70%
+	width: 60%;
+	filter: none;
 }
 
 a {
