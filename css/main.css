@@ -1,0 +1,175 @@
+:root {
+    --main-bg-color: #1C1C1C;
+    --inner-bg-color: #F8EEE7;
+    
+    --col-purple: #331E38;
+    --col-dk-blue: #1D2731;
+    
+    --col-dk-grey: #222222;
+    --col-lt-grey: #CCCCCC;
+}
+
+
+
+/*
+*  ======== Core ========
+*/ 
+	
+body {
+    margin: 60px auto;
+    width: 70%;
+    background-color: var(--main-bg-color);
+    font-family: "Georgia", serif;
+}
+
+.content {
+    background-color: var(--inner-bg-color);
+    padding: 50px;
+    padding-top: 10px;
+    margin: 30px;
+    margin-bottom: 50px; 
+}
+
+h1 {
+    font-weight: bold;
+    color: var(--main-bg-color);
+}
+
+p {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: #333;
+}
+
+table, td {
+    border-style: solid;
+    border-width: 1px;   
+    padding: 5px;
+}
+
+img {
+    border-style: solid;
+    border-width: 2px;   
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+	
+	
+	
+/*
+*  ======== Nav ========
+*/ 
+
+nav ul, footer ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    padding: 0px;
+    list-style: none;
+    font-weight: bold;
+}
+
+nav ul li, footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #999;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+
+/*
+*  ======== Footer ========
+*/ 
+
+footer {
+     border-top: 1px solid #d5d5d5;
+     font-size: .8em;
+ }
+
+ 
+
+/*
+*  ======== Contents Layout ========
+*/ 
+
+.Table_Of_Contents {
+    font-size: xx-large;   
+    color: var(--col-dk-grey);
+}
+
+article {
+    padding: 50px 5px;   
+}
+
+
+
+/* 
+*  ======== Figures ========
+*/ 
+
+/*
+*  -------- Figure Table --------
+*/ 
+
+.Fig_Table {
+    margin: 40px auto;
+    background-color: var(--col-dk-grey);
+    color: var(--col-lt-grey);
+    width: 100%;
+	table-layout: auto;
+}
+
+.Fig_Table_Item {
+    padding: 1px;
+}
+
+.Fig_Table_Item img {
+    width: 100%;
+}
+
+.Fig_Table_Item figcaption {
+    font-size: 14pt;
+}
+
+
+/*
+*  -------- Captions --------
+*/
+
+.Fig_Caption_List {
+	margin: 20px 0;
+	font-size: 12pt;
+}
+
+.Fig_Caption_List li {
+	margin: 10px 0;
+}
+
+
+/*
+*  -------- Figure Full --------
+*/ 
+
+.Full_Width_Fig {
+    margin: 20px auto;
+    background-color: var(--col-dk-grey);
+    color: var(--col-lt-grey);
+    width: 100%;
+    padding: 10px 50px;
+}
+
+.White_Line {
+    background-color: var(--col-lt-grey);   
+    height: 1px;
+    margin: 10px 0;
+}
+
+
+
