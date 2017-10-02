@@ -52,12 +52,11 @@ img {
 
 #navbar {
 	background-color: var(--col-dk-blue);
-	margin: 20px 5px;
+	padding: 20px 5px;
 	width: 100%
 }
 
-#navbar inner {
-	background-color: var(--col-dk-blue);
+#navbar .inner {
 	margin: 0 auto;
 	width: 70%
 }
