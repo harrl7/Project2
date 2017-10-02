@@ -17,12 +17,11 @@
 	
 body {
     margin: 60px auto;
-    width: 70%;
     background-color: var(--main-bg-color);
     font-family: "Georgia", serif;
 }
 
-.content {
+.contentaaa {
     background-color: var(--inner-bg-color);
     padding: 50px;
     padding-top: 10px;
@@ -30,16 +29,6 @@ body {
     margin-bottom: 50px; 
 }
 
-h1 {
-    font-weight: bold;
-    color: var(--main-bg-color);
-}
-
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
 
 table, td {
     border-style: solid;
@@ -61,16 +50,8 @@ img {
 *  ======== Nav ========
 */ 
 
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
-}
-
-nav ul li, footer ul li {
-    display: inline;
-    margin-right: 20px;
+#navbar {
+	background-color: var(--col-dk-blue);
 }
 
 a {
