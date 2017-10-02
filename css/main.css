@@ -51,9 +51,12 @@ img {
 */ 
 
 #navbar {
-	background-color: var(--col-dk-blue);
-	padding: 20px 5px;
 	width: 100%;
+}
+
+.blur {
+	background-color: var(--col-dk-blue);
+	padding: 20px 5px;	
 	filter: opacity(70%) blur(5px);
 }
 
