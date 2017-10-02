@@ -53,7 +53,8 @@ img {
 #navbar {
 	background-color: var(--col-dk-blue);
 	padding: 20px 5px;
-	width: 100%
+	width: 100%;
+	filter: opacity(30%);
 }
 
 #navbar .inner {
