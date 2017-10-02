@@ -52,6 +52,7 @@ img {
 
 #navbar {
 	background-color: var(--col-dk-blue);
+	margin: 0 auto;
 }
 
 a {
