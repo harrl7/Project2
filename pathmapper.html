@@ -11,36 +11,43 @@
 	
 	<p>
 		Path Mapper is a companion app for the Dunedin Botanic Gardens. The concept of the project is a digital advancement of a tourist brochure. With points of interest marked on a map to help guests navigate, and extended information on various items within the garden.
-	
+		<br>
 
 		An early prototype of this project used the onboard GPS to detect nearby items, and display information when the user approached a point of interest. This was found to be inconsistent because of the inaccuracy of GPS. Therefore this functionality had been practically abandoned when my team began work on the project.
 		As a substitute, it had been suggested that QR codes be used to identify items in the gardens. Negating the impact of inaccurate GPS service, while creating a clear link between the application and the physical items in the gardens.
-
+		<br>
+		
 		The initial specifications for the project were:
 		API web service to deliver information on the Botanic Gardens
 		An Android companion app for use by guest of the gardens, with features of:
 		A map screen, displaying points of interest
 		A scanner to read barcodes that identify items in the gardens
 		An item details screen that displays information on the selected item
-
+		<br>
+		
 		Working on an Existing Project
 		Had to learn structure of  old version. Some things were not implemented, hard to tell what these were for.
 		Easier to increment upon existing work. Large task to design large scale project
 		Get stuck thinking the new version has to use the design of the old version. Not actively trying to find new solutions.
-
+		<br>
+		
 		My project group picked up this project from where the previous year’s group left off. I had to read over the project and experiment with the application to familiarise myself with the existing codebase. I could discern the the broad structure of the app, but the details of the inner workings were difficult to comprehend. 
 		The app used many features of Android that I have limited experience such as the native SQLite database, the action bar menu system, and a heavy reliance on google maps. 
 		Also the original version we received had components that were unimplemented or only partially completed. Which made it more difficult to piece the project together and form a solid understanding of how the project functioned.
-
+		<br>
+		
 		The advantage of working upon an existing project is that we had a strong starting point to build upon. On a project of substantial scale, I find it it much easier to increment upon an existing design. It is quite daunting just to pick out where to start, when building a large project from scratch.
-
+		<br>
 
 		I found that I would become unnecessarily attached to the existing design choices of the previous development group. When incrementing upon an existing design, I am not actively looking to find new solutions. I would default into thinking that I had to continue in the same direction as the previous group, even though I was aware that my group would most likely be updating the design of the project.
-
+		<br>
+		
 		For example in the original version of the project that we received, the app would sync to the remote database on launch. In the initial startup procedure, the app makes an API call to receive the entirety of the information stored in the database. The information is cloned into a local database, before continuing on to the main functionality of the app. This means the app can function in isolation after launch, and does not need to make further API calls. But this method is also wasteful.
-
+		<br>
+		
 		Another example is the Android action bar menu. In the original version navigation was controlled entirely through this system. I did not really like this system, but it was already implemented and there was some novelty value to it as I had never used this feature of android in previous projects. So again we defaulted to continuing on with the choices of the previous project team.
-
+		<br>
+		
 		I became conscious of this when the design choices were questioned by people external the project. I couldn’t think of a justification much beyond “That’s just how it’s always been”. This helped me re-establish the importance of the design process. Increment on ideas and note what is working well, and what doesn’t work well. 
 		Scale
 		2 teams - api / android app
@@ -48,48 +55,61 @@
 		Long times, months
 		Sprawling Design
 		The primary components of the app are the Main Map, the Scanner, the Item Details screen, and somewhere in there needs to be the interface for setting and storing options. All these components lead to and draw from the others. It was major task throughout the project to fit all the desired features into the application. We had to think about maintaining a clean, modular architecture. And also design a user interface the was functionally intuitive, and visually appealing.
-
+		<br>
+		
 		There is no tidy linear order to the navigation, it’s more like a messy interconnected web.
 		From the Map you move on to the Scanner. The leads to Item Details. The Map can also lead to Item Details through an item marker on the map, unless you're offline. Sometimes Item Details needs to display information on a collection, so it needs the functionality to receive a collection as well as an item. Item Details can pass back information to the map to mark the item on the map. At one point there was another map screen as well. Every time you return to Main Map the options system has to keep the map styling and overlays the same.
-
+		<br>
+		
 		It’s not the most absolutely ambitious project ever undertaken. But the most complex projects I’ve done before this would have no more than 3 screens, with strictly ordered linear navigation. So it was a challenge not only to implement this, but also to present in a way that was coherent to the user.
-
+		<br>
+		
 		I’m overall quite satisfied with what we did with navigation on this project. But development was often rushed. And we would regularly reorganise the structure of the app to try and fit everything in. Developing the application, I felt like we were cramming in too much. When I see Android as inherently a lighter platform. I would of prefered a more streamlined design. 
 		This doesn’t even mean we would remove key features. Just trim the fat. For example offline functionality, and the overlay map.
 		Running the app offline breaks the connection to the API, and Google Maps has to run off cached data. All greatly reducing the functionality of the app. Also I don’t at all consider it to be unreasonable to require that user’s have an internet connection. But the inclusion of this forced us to cram in the functionality to handle running the app without an internet connection.
 		The overlay map just looks terrible. The resolution needed to overlay an image onto a zoomable map the size of the Botanic Gardens is quite high. So high that things started breaking. So we had to compromise by downscaling the image.
 		But getting the overlay running was a significant drain on resources. Finding the image resolution that would consistently run without crashing. Then the image had to perfectly aligned with the map. And whenever the overlay is activated the map must be styled to remove the labels that Google Maps uses to mark locations, and then masked since the image does not cover the user’s full field of view. And after all that everyone just used the satellite map style instead.
 		These features bloated the app, in terms of both user interface, and the internals of the software. Cutting these would not have significantly impacted the core functionality of the app. But would of let us streamline the design, and further polish the end product.
-
+		<br>
+		
 		Scanner
 		For my first development task I decided to implement the scanner. The scanner screen is an Activity that contains a camera feed. The Activity processes the camera feed to detect QR codes. When a valid QR code is detected, the user is forwarded to the item details screen to view information on the associated item.
-
+		<br>
+		
 		Implementing the scanner was a clear starting point to me. I had used a QR scanner functionality in previous work. Because it was a newly decided on feature, it was not yet implemented in the application. So the current build was missing a core structural component. Even a prototypical implementation of the scanner would allow us to begin practical testing of the app. To gain a better idea of the user experience.
-
+		<br>
+		
 		To the user, the process of using the QR scanner functionality is:
 		Navigate from the main map screen to the QR scanner 
 		Detect and read the value of a QR code
 		Forward the user the the item details screen
-
+		<br>
+		
 		Navigating to the scanner screen is simple. The Android framework contains the functionality for reading QR codes. Getting from the data of the QR code to the item detail screen was the most involved part.
-
+		<br>
+		
 		The QR codes would store an ID number for the associated item
-
+		<br>
+		
 		The development of the scanner component was elongated by changes to the data storage system of the project. 
 		The initial system was to sync a local database to the remote database on launch, then the app would draw from the local database. This system was dropped because it was inefficient to download and store the entire database.
 		We moved to fetch each individual item from the API as needed. For this we had to develop a more robust system of making API calls from the application. But that can have it’s own section. I found this to be a much more manageable than the Android SQLite local database. Largely owing to the fact that the new system was built by me, to be intuitive to me.
 		The final change to data storage was an update on the API. Updating the app to match the API update was much smoother than the change from local to remote storage. Any changes were mostly contained to the API handler class. The storing and displaying of the information was largely the same.
-
+		<br>
+		
 		The error handling of the scanner had to be able to deal with input that was not a valid ID, and ID’s that were not associated.
 		Item IDs are stored as integers so to check for a valid ID I simply had to check if the input was an integer.
 		After that, the app needs to make the API call for the ID to check if there is an associated item. Initially I passed the ID to the item details view, then made the API call. But for smoother error handling I moved the API call back to the scanner, and passed the resultant data onto the details activity. This means that if the API call does not return an item, the error handling is contained to the scanner. This lets me make the item details screen much cleaner in implementation, and a nicer experience for the user. As it is not required to deal with bad API calls.
-
+		<br>
+		
 		After the scanner was implemented, there were a few final bugs resolve.
-
+		<br>
+		
 		The camera feed would appear stretched on some devices
 		The camera had poor focus, making it difficult to detect QR codes
 		The app would often launch many item detail screens, breaking navigation 
-
+		<br>
+		
 		In the layout of the scanner, the camera feed does not take up the entire display. This is to leave room for the controls. But this means the camera feed component is squished to fit the layout. On some devices devices this creates a noticeable stretching effect on camera feed.
 		To Resolve this I broke up the layout so that the camera feed covers the entire display and the controls are on a separate layer on top. In implementation, I did this by moving from a Linear Layout to a Relative Layout.
 		I didn’t like to use Relative Layout’s for a while, but I’ve started to use them a bit more.
@@ -99,7 +119,8 @@
 		One thing I like to do is to put a progress bar in it’s own layer on top of the layout. This lets me hide and show the component without leaving a hole in the layout.
 		It can also be used overlay a component over images. This helps save space, since the edges of the images are generally not the point of focus anyway.
 		In this example I used Relative Layout layers to have a fullscreen component of the camera feed, while including other components in the layout.
-
+		<br>
+		
 		The camera feed was poorly focused. This didn’t look very good for the user, and it made the app worse at detecting QR codes. To resolve this we changed the parameters of the camera component to enable auto focus. This made the image much clearer.
 
 		When the app detects a QR code, it open an asynchronous thread to fetch the identified item from the API. When the item is returned, the app opens the Item Details Activity. In this system, the app can open multiple API threads at once. When these return, each one open it’s own Item Details Activity. This puts copies onto the Activity stack and ruins navigation. When the user presses back, they are sent to the previous copy.
