@@ -105,6 +105,8 @@ footer {
 
 article {
     padding: 50px 5px;   
+	text-shadow: none;
+	color: var(--col-dk-grey);	
 }
 
 
