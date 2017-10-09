@@ -39,12 +39,20 @@ title: Liam Harris
 		  $("#vis_tool").load("vis_tool.html"); 
 		});
 		
-		$(window).scroll(function (event) 
+		
+		$(window).scroll(function() 
 		{
-			var scroll = $("#path_mapper").scrollTop();
-			console.log(scroll);
-			// Do something
-		});
+			var scrollTop = $(window).scrollTop(),
+			divOffset = $('#path_mapper').offset().top,
+			dist = (divOffset - scrollTop);
+			
+			console.log(dist);
+			
+			//if (b.top == 55) 
+			{
+				//$('.message').text("Div B");
+			}
+		});​
 		
     </script> 
 	
