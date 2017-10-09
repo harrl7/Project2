@@ -32,11 +32,20 @@ title: Liam Harris
 	<link href="css/main.css" rel="stylesheet">
 
 	<script>
-	$(function()
-	{
-      $("#path_mapper").load("pathmapper.html"); 
-	  $("#vis_tool").load("vis_tool.html"); 
-    });
+	
+		$(function()
+		{
+		  $("#path_mapper").load("pathmapper.html"); 
+		  $("#vis_tool").load("vis_tool.html"); 
+		});
+		
+		$(window).scroll(function (event) 
+		{
+			var scroll = $(#path_mapper).scrollTop();
+			console.log(scroll);
+			// Do something
+		});
+		
     </script> 
 	
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
