@@ -129,38 +129,52 @@
 		<br>
 		
 		The camera feed was poorly focused. This didn’t look very good for the user, and it made the app worse at detecting QR codes. To resolve this we changed the parameters of the camera component to enable auto focus. This made the image much clearer.
-
+		<br>
+		
 		When the app detects a QR code, it open an asynchronous thread to fetch the identified item from the API. When the item is returned, the app opens the Item Details Activity. In this system, the app can open multiple API threads at once. When these return, each one open it’s own Item Details Activity. This puts copies onto the Activity stack and ruins navigation. When the user presses back, they are sent to the previous copy.
 		I found similar problems to be common. To resolve this I put a toggle on the scanner detection. When the scanner detects a QR code, I block it from detecting additional codes. The scanner is unblocked if the API call return no item, and when the Scanner Activity is resumed.
+		<br>
 
-
-		API handler
+		<h2>API handler</h2>
+		<br>
 		The initial version of the application would sync a local database to the API at launch. We wanted more control over API calls from the app so I developed  a class to handle API activity.
-
+		<br>
+		
 		The class has function to retrieve Items and Collections, as a complete list or by ID
 		Call, items, collections, all, by id.
 		The system I used for the API handler has pairs of function. A function to get the data, and another to receive the data. For example to get a single item from the database the client calls the API Handler function GetItem. When the API Handler receive the data it calls the client's function ReceiveItem to pass the data over.
 		The API Handler had to be generic so it could be reused in other components of the app. I put the receive data function into a Java interface. The API Handler stores it’s client as an instance of the interface, so any class can use the API.
+		<br>
 
-
-		Item Details View
-		Menu System
-		 
+		<h2>Item Details View</h2>
+		<br>
+		
+		<h2>Menu System</h2>
+		<br> 
 
 		The first iteration of the app implemented the default Android Action Bar menu. As an inbuilt function of Android, it was simple to develop and modify. But as a trade off the Action Bar menu lacks customizability. Besides being overly rigid, I have a few other problems with this menu system.
+		<br>
 
 		Firstly, it wastes screen space. When designing Android layouts I like to disable the Action Bar. I prefer to save the extra space, and just integrate the controls into the main layout. But the initial version off the app used the Action Bar menu, so we couldn’t disable it. On the Main Map screen, I wanted the map to cover as large an area as possible. So it was annoying to have a opaque bar over the top of the screen.
+		<br>
 
 		This menu was also poorly styled. It’s like was designed to pack as many things into a small an area as possible. I wanted the design our own menu for the app so the controls could be spaced out to and made clearer to the user.
+		<br>
 
 		We also found that this feature had poor compatibility. The system would display the different  sub menus as icons on the bar. But the smaller your devices screen was, the less icons fit. The system shows as many icons as will fit, as the rest are put into a catch-all list. This was confusing to me when I first used the app on a different device and the menu layout had changed.
+		<br>
 		We tested the app on a device with a small screen, running an old version of Android. The menu functioned strangely on this device. When expanding the menu it would appear in the bottom corner of the screen, instead of the top. Also the menu was poorly fitted to the smaller screen size.
+		<br>
 
 		The next menu system was a separate menu screen I developed. This had it’s own full screen layout. This system let us have to menu fill the entire surface of the screen, and was very customizable. It also separated the menu for the Main Map so the mao could fill the full screen.
+		<br>
 
 		The final version of the menu was a similar system. But this menu is overlaid onto the map instead of being a different screen. I like this version more because being able to see the map in the background gives a better sense of navigation. Also the style in improved.
+		<br>
 
 		I think each iteration of the menu system marks an incremental improvement, although it was annoying in the moment to have to tear up and redesign sections of the app. I’d say it was worth the exercise for working on my first project of this scale. We didn’t really have the experience to foresee the many the problems going into the project. But in future I’d like to get a stronger plan down so I can avoid major changes during development.
+		<br>
+		
 	</p>
 	
 	
