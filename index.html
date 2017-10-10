@@ -43,15 +43,28 @@ title: Liam Harris
 		$(window).scroll(function() 
 		{
 			var scrollTop = $(window).scrollTop(),
-			divOffset = $('#path_mapper').offset().top,
-			dist = (divOffset - scrollTop);
+			pathmapperTop = $('#path_mapper')offset().top,
+			vistoolTop = $('#vis_tool')offset().top;
 			
-			console.log(dist);
+			//dist = (divOffset - scrollTop);
 			
-			//if (b.top == 55) 
 			
-				//$('.message').text("Div B");
+			$('#nav_home').removeClass("active");
+			$('#nav_pathmapper').removeClass("active");
+			$('#nav_vistool').removeClass("active");
 			
+			if (scrollTop >= vistoolTop) 
+			{
+				$('#nav_vistool').addClass("active");
+			}
+			else if (scrollTop >= pathmapperTop) 
+			{
+				$('#nav_pathmapper').addClass("active");
+			}
+			else
+			{
+				$('#nav_home').addClass("active");
+			}	
 		})
 		
     </script> 
@@ -81,9 +94,9 @@ title: Liam Harris
 						<nav>
 						
 							<ul class="nav masthead-nav">
-								<li class="active"><a href="#home">Home</a></li>
-								<li><a href="#path_mapper">Path Mapper</a></li>
-								<li><a href="#vis_tool">Vision Tool</a></li>
+								<li class="active" 	id="nav_home"		><a href="#home">			Home</a></li>
+								<li					id ="nav_pathmapper"><a href="#path_mapper">	Path Mapper</a></li>
+								<li					id="nav_vistool"	><a href="#vis_tool">		Vision Tool</a></li>
 							</ul>
 							
 						</nav>
