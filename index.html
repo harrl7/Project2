@@ -33,6 +33,7 @@ title: Liam Harris
 
 	<script>
 	
+		<!-- Load content -->
 		$(function()
 		{
 		  $("#path_mapper").load("pathmapper.html"); 
@@ -40,7 +41,7 @@ title: Liam Harris
 		  $("#technical_proficiency").load("technical_proficiency.html");										 
 		});
 		
-		
+		<!-- Navbar effect -->
 		$(window).scroll(function() 
 		{
 			var scrollTop = $(window).scrollTop(),
@@ -53,18 +54,18 @@ title: Liam Harris
 			$('#nav_pathmapper').removeClass("active");
 			$('#nav_vistool').removeClass("active");
 			
-			if (scrollTop >= vistoolTop) 
+			if (scrollTop >= techTop) 
+			{		
+				$('#nav_technical_proficiency').addClass("active");
+			}	
+			else if (scrollTop >= vistoolTop) 
 			{
 				$('#nav_vistool').addClass("active");
 			}
 			else if (scrollTop >= pathmapperTop) 
 			{
 				$('#nav_pathmapper').addClass("active");
-			}
-			else if (scrollTop >= techTop) 
-			{		
-				$('#nav_technical_proficiency').addClass("active");
-			}	
+			}			
 			else
 			{
 				$('#nav_home').addClass("active");
