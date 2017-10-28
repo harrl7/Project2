@@ -37,6 +37,7 @@ title: Liam Harris
 		{
 		  $("#path_mapper").load("pathmapper.html"); 
 		  $("#vis_tool").load("vis_tool.html"); 
+		  $("#technical_proficiency").load("technical_proficiency.html"); 
 		});
 		
 		
@@ -45,8 +46,7 @@ title: Liam Harris
 			var scrollTop = $(window).scrollTop(),
 			pathmapperTop = $('#path_mapper').offset().top,
 			vistoolTop = $('#vis_tool').offset().top;
-			
-			// dist = (divOffset - scrollTop);
+			techTop = $('#technical_proficiency').offset().top;
 			
 			
 			$('#nav_home').removeClass("active");
@@ -61,10 +61,14 @@ title: Liam Harris
 			{
 				$('#nav_pathmapper').addClass("active");
 			}
+			else if (scrollTop >= techTop) 
+			{		
+				$('#nav_technical_proficiency').addClass("active");
+			}	
 			else
 			{
 				$('#nav_home').addClass("active");
-			}	
+			}
 		})
 		
     </script> 
@@ -94,9 +98,10 @@ title: Liam Harris
 						<nav>
 						
 							<ul class="nav masthead-nav">
-								<li class="active" 	id="nav_home"		><a href="#home">			Home</a></li>
-								<li					id ="nav_pathmapper"><a href="#path_mapper">	Path Mapper</a></li>
-								<li					id="nav_vistool"	><a href="#vis_tool">		Vision Tool</a></li>
+								<li class="active" 	id="nav_home">					<a href="#home">					Home</a></li>
+								<li					id ="nav_pathmapper">			<a href="#path_mapper">				Path Mapper</a></li>
+								<li					id="nav_vistool">				<a href="#vis_tool">				Vision Tool</a></li>
+								<li					id="nav_technical_proficiency">		<a href="#technical_proficiency">	Technical Proficiency</a></li>
 							</ul>
 							
 						</nav>
@@ -116,6 +121,7 @@ title: Liam Harris
 
 						<article id="path_mapper"></article>
 						<article id="vis_tool"></article>
+						<article id="technical_proficiency"></article>
 					</div>
 
 				</div>
