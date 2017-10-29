@@ -48,14 +48,21 @@ title: Liam Harris
 			pathmapperTop = $('#path_mapper').offset().top,
 			vistoolTop = $('#vis_tool').offset().top;
 			techTop = $('#technical_proficiency').offset().top;
+			timelineTop = $('#timeline').offset().top;
 			
 			
 			$('#nav_home').removeClass("active");
 			$('#nav_pathmapper').removeClass("active");
 			$('#nav_vistool').removeClass("active");
 			$('#nav_technical_proficiency').removeClass("active");
+			$('#nav_timeline').removeClass("active");
 			
-			if (scrollTop >= techTop) 
+			
+			if (scrollTop >= timelineTop) 
+			{		
+				$('#nav_timeline').addClass("active");
+			}
+			else if (scrollTop >= techTop) 
 			{		
 				$('#nav_technical_proficiency').addClass("active");
 			}	
@@ -103,7 +110,8 @@ title: Liam Harris
 								<li class="active" 	id="nav_home">					<a href="#home">					Home</a></li>
 								<li					id ="nav_pathmapper">			<a href="#path_mapper">				Path Mapper</a></li>
 								<li					id="nav_vistool">				<a href="#vis_tool">				Vision Tool</a></li>
-								<li					id="nav_technical_proficiency">		<a href="#technical_proficiency">	Technical Proficiency</a></li>
+								<li					id="nav_technical_proficiency">	<a href="#technical_proficiency">	Technical Proficiency</a></li>
+								<li					id="nav_timeline">				<a href="#timeline">				Timeline</a></li>
 							</ul>
 							
 						</nav>
@@ -124,6 +132,7 @@ title: Liam Harris
 						<article id="path_mapper"></article>
 						<article id="vis_tool"></article>
 						<article id="technical_proficiency"></article>
+						<article id="timeline"></article>
 					</div>
 
 				</div>
