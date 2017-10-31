@@ -28,12 +28,27 @@
 			I also encapsulated the functionality to deserialise JSON objects. This is let me use the same functionality on API calls that retrieve a single item by id, and calls that retrieve an array of items. <a href="https://github.com/OtagoPolytechnic/PathMapper/blob/master/PathMapper/app/src/main/java/bit/com/pathmapper/API/HttpManager.java#L171" target="_blank"> link </a> <br>
 			<br>
 
-
 		</p>
+		<br>
+		
+		<h3> Vision Tools </h3>
+		<p>	
+			Overall I am much happier with the quality of the Vision Tools application. I worked on this project after Path Mapper, and had learned from that early work. And we were less rushed and had a smaller more cohesive team which helped alot too.
+			<br>
+			
+			I still like the general system the app uses to run the tools. I developed it last semester but it helps to keep the code clean by taking shared implementation components out of the tool fragments. The timer loop and writing the results to an output file are two good examples of functionality that is not contained in tool fragment files.
+			<br>
 
+			<a href="https://github.com/OtagoPolytechnic/VisualScanSuite/blob/master/VisScan/app/src/main/java/bit/harrl7/visscan/Tools/DirectionalFragment.java" target="_blank"> Directional tool </a> <br>
 
+			One thing I like to do is try and categorize the components in the onCreate. It helps me to find things later if everything is ordered.
+			<br>
 
-	
+			Mostly the tools follow the structure of: move some Views around, evaluate some condition (usually compare coordinates), then write to a the output file. Thinking about the tools in this way helps me to keep them well organised. For example the directional tool
+		</p>
+		
+		
+		<br>
 
 		<!-- ---------------------------------- -->
 		<h2> How well did you follow best practices in development </h2>
