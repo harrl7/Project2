@@ -8,7 +8,32 @@
 		<!-- ---------------------------------- -->
 		<h2> What is the overall quality of your code like </h2>
 
+		<h3> Path Mapper </h3>
+		<p> 
+			I think the overall code quality of Path Mapper suffered as a result of lower team cohesion in a large group, and rushing to make large scale changes to the project. The more complex elements often became littered with redundant artifacts of previous versions, which people were too scared to delete. 
+			<br>
+			I am most happy with the more self contained elements of the project.
+		</p>
+		<br>
 
+		<p>
+			
+			<a href="https://github.com/OtagoPolytechnic/PathMapper/blob/master/PathMapper/app/src/main/java/bit/com/pathmapper/API/HttpManager.java" target="_blank"> HttpManager </a> <br>
+			In the class that handles API calls I tried to reuse code wherever I could. As I was adding handling for each of the API functions, I encapsulated the generic parts that could be shared and reused.
+			<br>
+			
+			HTTPGetJSON retrieves the JSON string from the API and does not perform any proccessing on the text. All API handling requires this, the only difference being the input parameter of the specific API function to be called. <a href="https://github.com/OtagoPolytechnic/PathMapper/blob/master/PathMapper/app/src/main/java/bit/com/pathmapper/API/HttpManager.java#L264" target="_blank"> link </a> <br>
+			<br>
+			
+			I also encapsulated the functionality to deserialise JSON objects. This is let me use the same functionality on API calls that retrieve a single item by id, and calls that retrieve an array of items. <a href="https://github.com/OtagoPolytechnic/PathMapper/blob/master/PathMapper/app/src/main/java/bit/com/pathmapper/API/HttpManager.java#L171" target="_blank"> link </a> <br>
+			<br>
+
+
+		</p>
+
+
+
+	
 
 		<!-- ---------------------------------- -->
 		<h2> How well did you follow best practices in development </h2>
