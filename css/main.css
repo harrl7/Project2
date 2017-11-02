@@ -20,8 +20,8 @@ body {
 }
 
 .title {
-	color: "black";
-	font-size: "xx-large";
+	color: black;
+	font-size: -webkit-xxx-large;
 }
 
 .site-wrapper {
