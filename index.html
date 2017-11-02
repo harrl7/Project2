@@ -41,6 +41,7 @@ title: Liam Harris
 			$("#technical_proficiency").load("technical_proficiency.html");
 			$("#professional_proficiency").load("professional_proficiency.html");
 			$("#timeline").load("timeline.html");	  
+			$("#links").load("links.html");	
 		});
 		
 		<!-- Navbar effect -->
@@ -52,7 +53,7 @@ title: Liam Harris
 			techTop = $('#technical_proficiency').offset().top;
 			profTop = $('#professional_proficiency').offset().top;
 			timelineTop = $('#timeline').offset().top;
-			
+			linksTop = $('#links').offset().top;
 			
 			$('#nav_home').removeClass("active");
 			$('#nav_pathmapper').removeClass("active");
@@ -60,9 +61,14 @@ title: Liam Harris
 			$('#nav_technical_proficiency').removeClass("active");
 			$('#nav_professional_proficiency').removeClass("active");
 			$('#nav_timeline').removeClass("active");
+			$('#nav_links').removeClass("active");
 			
 			
-			if (scrollTop >= timelineTop) 
+			if (scrollTop >= linksTop) 
+			{		
+				$('#nav_links').addClass("active");
+			}
+			else if (scrollTop >= timelineTop) 
 			{		
 				$('#nav_timeline').addClass("active");
 			}
@@ -121,6 +127,7 @@ title: Liam Harris
 								<li					id="nav_technical_proficiency">		<a href="#technical_proficiency">		Technical Proficiency</a></li>
 								<li					id="nav_professional_proficiency">	<a href="#professional_proficiency">	Professional Proficiency</a></li>
 								<li					id="nav_timeline">					<a href="#timeline">					Timeline</a></li>
+								<li					id="nav_links">						<a href="#links">						Links</a></li>
 							</ul>
 							
 						</nav>
@@ -145,6 +152,7 @@ title: Liam Harris
 						<article id="technical_proficiency"></article>
 						<article id="professional_proficiency"></article>
 						<article id="timeline"></article>
+						<article id="links"></article>
 						
 					</div>
 
