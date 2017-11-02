@@ -19,6 +19,11 @@ body {
 
 }
 
+.title {
+	color: "black";
+	font-size: "xx-large";
+}
+
 .site-wrapper {
 	background-color: var(--main-bg-color);
 	font-family: "Georgia", serif;
