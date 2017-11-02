@@ -39,6 +39,7 @@ title: Liam Harris
 			$("#path_mapper").load("pathmapper.html");
 			$("#vis_tool").load("vis_tool.html");
 			$("#technical_proficiency").load("technical_proficiency.html");
+			$("#professional_proficiency").load("professional_proficiency.html");
 			$("#timeline").load("timeline.html");	  
 		});
 		
@@ -49,6 +50,7 @@ title: Liam Harris
 			pathmapperTop = $('#path_mapper').offset().top,
 			vistoolTop = $('#vis_tool').offset().top;
 			techTop = $('#technical_proficiency').offset().top;
+			profTop = $('#professional_proficiency').offset().top;
 			timelineTop = $('#timeline').offset().top;
 			
 			
@@ -56,6 +58,7 @@ title: Liam Harris
 			$('#nav_pathmapper').removeClass("active");
 			$('#nav_vistool').removeClass("active");
 			$('#nav_technical_proficiency').removeClass("active");
+			$('#nav_professional_proficiency').removeClass("active");
 			$('#nav_timeline').removeClass("active");
 			
 			
@@ -63,6 +66,10 @@ title: Liam Harris
 			{		
 				$('#nav_timeline').addClass("active");
 			}
+			else if (scrollTop >= profTop) 
+			{		
+				$('#nav_professional_proficiency').addClass("active");
+			}	
 			else if (scrollTop >= techTop) 
 			{		
 				$('#nav_technical_proficiency').addClass("active");
@@ -112,6 +119,7 @@ title: Liam Harris
 								<li					id ="nav_pathmapper">			<a href="#path_mapper">				Path Mapper</a></li>
 								<li					id="nav_vistool">				<a href="#vis_tool">				Vision Tool</a></li>
 								<li					id="nav_technical_proficiency">	<a href="#technical_proficiency">	Technical Proficiency</a></li>
+								<li					id="nav_professional_proficiency">	<a href="#professional_proficiency">	Technical Proficiency</a></li>
 								<li					id="nav_timeline">				<a href="#timeline">				Timeline</a></li>
 							</ul>
 							
@@ -133,6 +141,7 @@ title: Liam Harris
 						<article id="path_mapper"></article>
 						<article id="vis_tool"></article>
 						<article id="technical_proficiency"></article>
+						<article id="professional_proficiency"></article>
 						<article id="timeline"></article>
 						
 					</div>
