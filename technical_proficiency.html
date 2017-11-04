@@ -52,9 +52,64 @@
 
 		<!-- ---------------------------------- -->
 		<h2> How well did you follow best practices in development </h2>
+		
+		<p>
+			During development we held group scrum meetings three times each week. The nominated scrum master recorded the progress made at each meet.
+			<a href="https://drive.google.com/open?id=122sC8LnYvwt4ydeKWHKnYWcBTIQrpX8z" target="_blank"> link </a> <br>
+			<br>
+
+			To test the Pathmapper app we created a user testing feedback form. The form has tasks for the user to complete as well as general user experience questions.
+			<a href="https://drive.google.com/open?id=15q3aQpi7iJXMP4Rq1GaKRUQF4hw-aQjc" target="_blank"> link </a> <br>
+			<br>
+
+			After a substantial number of users had provided feedback we read through all the forms and compiled a list of the issues that had been identified
+			<a href="https://drive.google.com/open?id=0B4oAfWQrOmHiWlRIYVYxSDI5Snc" target="_blank"> link </a> <br>
+			<br>		
 
 
+			To make the layouts of my apps scale consistently across devices, I followed practices described in the Android developers guide.
+			<a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank"> link </a> <br>	
+			<br>
 
+			<br>
+			<b> 1. Use wrap_content, match_parent, or the dp unit for layout dimensions </b>
+			<br>
+
+			“When defining the android:layout_width and android:layout_height for views in an XML layout file, using "wrap_content", "match_parent" or dpunits guarantees that the view is given an appropriate size on the current device screen.”
+			<br>
+
+			“Similarly, you should prefer the sp (scale-independent pixel) to define text sizes. The sp scale factor depends on a user setting and the system scales the size the same as it does for dp.”
+			<br>
+			
+			<b> 3. Do not use AbsoluteLayout </b>
+			<br>
+			
+			“You should instead use RelativeLayout, which uses relative positioning to lay out its child views. For instance, you can specify that a button widget should appear "to the right of" a text widget.”
+			<br>
+			
+			In all Android applications I develop I mostly use either the LinearLayout or RelativeLayout depending on context.
+			<br>
+			<br>
+
+			Android best practices recommends testing the app on a variety of devices.
+			<br>
+			
+			“Before publishing your application, you should thoroughly test it in all of the supported screen sizes and densities”
+			<br>
+			
+			This practice was followed during the development of Pathmapper as we tested the app using our personal phones and additional phones provided to us. But early in development on the Visual Testing Suite this practice was neglected. For one it wasn’t immediately apparent that this was a problem. Also I often feel like I am not making the best use of time when I invest in user interface over developing new features or improving robustness. 
+			<br>
+			
+			Later when we began to test on different devices and I realised the app would only function properly on a narrow band of devices. Naturally I want the end product to be open to as wide a market as possible, this encouraged me to improve scalability. We tested the application on 3 separate physical devices, as well as a variety of emulated devices including Android televisions.
+			<br>
+			<br>
+
+			My implementation of Android best practices is exemplified by the main menu for the Visual Testing Suite.
+			<a href="https://github.com/OtagoPolytechnic/VisualScanSuite/blob/master/VisScan/app/src/main/res/layout/activity_main.xml" target="_blank"> link </a> <br>
+		
+		</p>
+
+		<br><br>
 		<!-- ---------------------------------- -->
 		<h2> To what extent do you think you contributed an equal portion of the overall project </h2>	
 		<p> I contributed to the front end of Path Mapper and the Vision Tools project. </p>
