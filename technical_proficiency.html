@@ -72,6 +72,7 @@
 			<a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank"> link </a> <br>	
 			<br>
 
+			
 			<b> 1. Use wrap_content, match_parent, or the dp unit for layout dimensions </b>
 			<br>
 
@@ -82,10 +83,16 @@
 			<br>
 			<br>
 			
+			
 			<b> 2. Do not use hard-coded pixel values in your application code </b>
 			<br>
 			
 			<i> If you use pixel values in your application code to work with bitmaps that are not pre-scaled for the current screen density, you might need to scale the pixel values that you use in your code to match the un-scaled bitmap source. </i>
+			<br>
+			
+			None of my work in either project involves manipulating Bitmaps so I could not apply this. Pixel values are used to record data from the vision testing tools. This is not ideal because results are relative to the device. But we have set aside developing upon this functionality for a later project group. 
+			<br>
+			
 			
 			<b> 3. Do not use AbsoluteLayout </b>
 			<br>
@@ -108,8 +115,18 @@
 			
 			Later when we began to test on different devices and I realised the app would only function properly on a narrow band of devices. Naturally I want the end product to be open to as wide a market as possible, this encouraged me to improve scalability. We tested the application on 3 separate physical devices, as well as a variety of emulated devices including Android televisions.
 			<br>
+			
+			
+			<b> 4. Use size and density-specific resources </b>
 			<br>
-
+			
+			<i> Although the system scales your layout and drawable resources based on the current screen configuration, you may want to make adjustments to the UI on different screen sizes and provide bitmap drawables that are optimized for different densities </i>
+			<br>
+			
+			I did not use complex bitmaps that I am worried about scaling. For layout scaling, the use of wrap_content and match_parent and the system scaling is provides an acceptable level of UI scalability without having to invest an excessive amount of development resources.
+			<br>
+			<br>
+		
 			My implementation of Android best practices is exemplified by the main menu for the Visual Testing Suite.
 			<a href="https://github.com/OtagoPolytechnic/VisualScanSuite/blob/master/VisScan/app/src/main/res/layout/activity_main.xml" target="_blank"> link </a> <br>
 		
