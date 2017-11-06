@@ -115,6 +115,7 @@
 		I’m overall quite satisfied with what we did with navigation on this project. But development was often rushed. And we would regularly reorganise the structure of the app to try and fit everything in. Developing the application, I felt like we were cramming in too much. When I see Android as inherently a lighter platform. I would of prefered a more streamlined design. 
 		This doesn’t even mean we would remove key features. Just trim the fat.
 		<br>
+		<br>
 		
 		For example offline functionality, and the overlay map.
 		<br>
@@ -124,6 +125,7 @@
 		
 		The overlay map just looks terrible. The resolution needed to overlay an image onto a zoomable map the size of the Botanic Gardens is quite high. So high that things started breaking. So we had to compromise by downscaling the image.
 		But getting the overlay running was a significant drain on resources. Finding the image resolution that would consistently run without crashing. Then the image had to perfectly aligned with the map. And whenever the overlay is activated the map must be styled to remove the labels that Google Maps uses to mark locations, and then masked since the image does not cover the user’s full field of view. And after all that everyone just used the satellite map style instead.
+		<br>
 		<br>
 		
 		These features bloated the app, in terms of both user interface, and the internals of the software. Cutting these would not have significantly impacted the core functionality of the app. But would of let us streamline the design, and further polish the end product.
@@ -180,7 +182,6 @@
 		</tr>
 		
 	</table>
-	<br>
 		
 	<p>	
 		For my first development task I decided to implement the scanner. The scanner screen is an Activity that contains a camera feed. The Activity processes the camera feed to detect QR codes. When a valid QR code is detected, the user is forwarded to the item details screen to view information on the associated item.
@@ -230,11 +231,19 @@
 		<br>
 		
 		In the layout of the scanner, the camera feed does not take up the entire display. This is to leave room for the controls. But this means the camera feed component is squished to fit the layout. On some devices devices this creates a noticeable stretching effect on camera feed.
+		<br>
+		
 		To Resolve this I broke up the layout so that the camera feed covers the entire display and the controls are on a separate layer on top. In implementation, I did this by moving from a Linear Layout to a Relative Layout.
-		I didn’t like to use Relative Layout’s for a while, but I’ve started to use them a bit more.
-		When I first started to develop in Android, I would only use Relative. It’s the default, and it makes sense when you’re just getting started. You just drop things where you want them to go.
+		<br>
+		<br>
+		
+		I didn’t like to use Relative Layout’s for a while, but I’ve started to use them a bit more. When I first started to develop in Android, I would only use Relative. It’s the default, and it makes sense when you’re just getting started. You just drop things where you want them to go.
+		<br>
+		
 		Once I had more a bit more experience and knew what I was doing, I developed a strong preference for Linear. In complex layouts, Relative has a tendency to tie itself into knots. Components are placed relative to each other, so any slight change can break everything. Linear is much more clean and mechanical. The whole layout is a vertical list of things, perfectly aligned. If you want more complexity, make one of the things a horizontal list of things. Finish it off with some margins and colour. This gives an intuitive, hierarchical structure to the layout. It’s so efficient and tidy that I refused to use Relative. But I realise now that is not entirely a fair comparison.
 		I now have a better understanding the roles that Linear and Relative layouts serve. Relative is used to layer components. I wasn’t thinking of how to incorporate that feature into my layout designs. I would put all the components into one flat layer. This works fine for the simple static layouts that I was doing. But from experience I learnt some new techniques to create better layouts with layers. 
+		<br>
+		
 		One thing I like to do is to put a progress bar in it’s own layer on top of the layout. This lets me hide and show the component without leaving a hole in the layout.
 		It can also be used overlay a component over images. This helps save space, since the edges of the images are generally not the point of focus anyway.
 		In this example I used Relative Layout layers to have a fullscreen component of the camera feed, while including other components in the layout.
