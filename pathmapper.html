@@ -31,22 +31,26 @@
 		
 		The initial specifications for the project were:
 	</p>
-		<ol>	
-			<li> API web service to deliver information on the Botanic Gardens </li>
-			<li> An Android companion app for use by guest of the gardens, with features of:
-				<ul>
-					<li> A map screen, displaying points of interest
-					<li> A scanner to read barcodes that identify items in the gardens
-					<li> An item details screen that displays information on the selected item
-				</ul>
-			</li>
-		</ol>
+	
+	<ol>	
+		<li> API web service to deliver information on the Botanic Gardens </li>
+		<li> An Android companion app for use by guest of the gardens, with features of:
+			<ul>
+				<li> A map screen, displaying points of interest
+				<li> A scanner to read barcodes that identify items in the gardens
+				<li> An item details screen that displays information on the selected item
+			</ul>
+		</li>
+	</ol>
+	
+	<br>
+	<br>
 	
 
-	<p>
-		<h2>Working on an Existing Project</h2>
-		
 	
+	<h2>Working on an Existing Project</h2>
+	
+	<p>	
 		Had to learn structure of  old version. Some things were not implemented, hard to tell what these were for.
 		Easier to increment upon existing work. Large task to design large scale project
 		Get stuck thinking the new version has to use the design of the old version. Not actively trying to find new solutions.
@@ -76,92 +80,115 @@
 		<br>
 		
 		I became conscious of this when the design choices were questioned by people external the project. I couldn’t think of a justification much beyond “That’s just how it’s always been”. This helped me re-establish the importance of the design process. Increment on ideas and note what is working well, and what doesn’t work well. 
+		<br>
+		<br>
 	</p>
 
-	<p>
-		<h2> Scale </h2>
-		
+
+	
+	<h2> Scale </h2>
+	
+	<p>	
 		2 teams - api / android app
 		Full 5 project team working on project
 		Long times, months
 	</p>
 	
+	
+	
+	<h2> Sprawling Design </h2>
+	
 	<p>	
-		<h2> Sprawling Design </h2>
-
 		The primary components of the app are the Main Map, the Scanner, the Item Details screen, and somewhere in there needs to be the interface for setting and storing options. All these components lead to and draw from the others. It was major task throughout the project to fit all the desired features into the application. We had to think about maintaining a clean, modular architecture. And also design a user interface the was functionally intuitive, and visually appealing.
+		<br>
 		<br>
 		
 		There is no tidy linear order to the navigation, it’s more like a messy interconnected web.
 		From the Map you move on to the Scanner. The leads to Item Details. The Map can also lead to Item Details through an item marker on the map, unless you're offline. Sometimes Item Details needs to display information on a collection, so it needs the functionality to receive a collection as well as an item. Item Details can pass back information to the map to mark the item on the map. At one point there was another map screen as well. Every time you return to Main Map the options system has to keep the map styling and overlays the same.
 		<br>
+		<br>
 		
 		It’s not the most absolutely ambitious project ever undertaken. But the most complex projects I’ve done before this would have no more than 3 screens, with strictly ordered linear navigation. So it was a challenge not only to implement this, but also to present in a way that was coherent to the user.
 		<br>
+		<br>
 		
 		I’m overall quite satisfied with what we did with navigation on this project. But development was often rushed. And we would regularly reorganise the structure of the app to try and fit everything in. Developing the application, I felt like we were cramming in too much. When I see Android as inherently a lighter platform. I would of prefered a more streamlined design. 
-		This doesn’t even mean we would remove key features. Just trim the fat. For example offline functionality, and the overlay map.
-		Running the app offline breaks the connection to the API, and Google Maps has to run off cached data. All greatly reducing the functionality of the app. Also I don’t at all consider it to be unreasonable to require that user’s have an internet connection. But the inclusion of this forced us to cram in the functionality to handle running the app without an internet connection.
+		This doesn’t even mean we would remove key features. Just trim the fat.
+		<br>
+		
+		For example offline functionality, and the overlay map.
+		<br>
+		
+		Running the app offline breaks the connection to the API, and Google Maps has to run from cached data. All greatly reducing the functionality of the app. Also I don’t at all consider it to be unreasonable to require that user’s have an internet connection. But the inclusion of this forced us to cram in the functionality to handle running the app without an internet connection.
+		<br>
+		
 		The overlay map just looks terrible. The resolution needed to overlay an image onto a zoomable map the size of the Botanic Gardens is quite high. So high that things started breaking. So we had to compromise by downscaling the image.
 		But getting the overlay running was a significant drain on resources. Finding the image resolution that would consistently run without crashing. Then the image had to perfectly aligned with the map. And whenever the overlay is activated the map must be styled to remove the labels that Google Maps uses to mark locations, and then masked since the image does not cover the user’s full field of view. And after all that everyone just used the satellite map style instead.
+		<br>
+		
 		These features bloated the app, in terms of both user interface, and the internals of the software. Cutting these would not have significantly impacted the core functionality of the app. But would of let us streamline the design, and further polish the end product.
+		<br>
+		<br>
 	</p>
+		
 
-	<p>
-		<h2> Scanner </h2>
-		<br>
+	
+	<h2> Scanner </h2>
 		
-		<!-- -->
-		<table class="Fig_Table">	
-		
-			<tr>
-				<td>
-					<figure class="Fig_Table_Item">
-						<img src="/assets/img/botanic_gardens/map_zoom2.png">
-						<figcaption> 1 </figcaption>
-					</figure>
-				</td>
+	<!-- -->
+	<table class="Fig_Table">	
+	
+		<tr>
+			<td>
+				<figure class="Fig_Table_Item">
+					<img src="/assets/img/botanic_gardens/map_zoom2.png">
+					<figcaption> 1 </figcaption>
+				</figure>
+			</td>
 
-				<td>
-					<figure class="Fig_Table_Item">
-						<img src="/assets/img/botanic_gardens/qr_scanner.png">
-						<figcaption> 2 </figcaption>
-					</figure>
-				</td>
-				
-				<td>
-					<figure class="Fig_Table_Item">
-						<img src="/assets/img/botanic_gardens/item.png">
-						<figcaption> 3 </figcaption>
-					</figure>
-				</td>
-			</tr>	
+			<td>
+				<figure class="Fig_Table_Item">
+					<img src="/assets/img/botanic_gardens/qr_scanner.png">
+					<figcaption> 2 </figcaption>
+				</figure>
+			</td>
 			
-			<tr>
-				<td colspan="3">
-					<ol class="Fig_Caption_List" start="1">
-						<li>
-							From the main map, the user can launch the QR code scanner.
-						</li>
-						
-						<li>
-							The QR scanner activity checks the camera feed for QR codes.
-						</li>
-						
-						<li>
-							When a valid QR Code is detected the item's details are displayed.
-						</li>
-					</ol>
-				</td>	
-			</tr>
-			
-		</table>
-		<br>
+			<td>
+				<figure class="Fig_Table_Item">
+					<img src="/assets/img/botanic_gardens/item.png">
+					<figcaption> 3 </figcaption>
+				</figure>
+			</td>
+		</tr>	
 		
+		<tr>
+			<td colspan="3">
+				<ol class="Fig_Caption_List" start="1">
+					<li>
+						From the main map, the user can launch the QR code scanner.
+					</li>
+					
+					<li>
+						The QR scanner activity checks the camera feed for QR codes.
+					</li>
+					
+					<li>
+						When a valid QR Code is detected the item's details are displayed.
+					</li>
+				</ol>
+			</td>	
+		</tr>
+		
+	</table>
+	<br>
+		
+	<p>	
 		For my first development task I decided to implement the scanner. The scanner screen is an Activity that contains a camera feed. The Activity processes the camera feed to detect QR codes. When a valid QR code is detected, the user is forwarded to the item details screen to view information on the associated item.
+		<br>
 		<br>
 		
 		Implementing the scanner was a clear starting point to me. I had used a QR scanner functionality in previous work. Because it was a newly decided on feature, it was not yet implemented in the application. So the current build was missing a core structural component. Even a prototypical implementation of the scanner would allow us to begin practical testing of the app. To gain a better idea of the user experience.
+		<br>
 		<br>
 		
 		To the user, the process of using the QR scanner functionality is:
@@ -169,11 +196,14 @@
 		Detect and read the value of a QR code
 		Forward the user the the item details screen
 		<br>
+		<br>
 		
 		Navigating to the scanner screen is simple. The Android framework contains the functionality for reading QR codes. Getting from the data of the QR code to the item detail screen was the most involved part.
 		<br>
+		<br>
 		
 		The QR codes would store an ID number for the associated item
+		<br>
 		<br>
 		
 		The development of the scanner component was elongated by changes to the data storage system of the project. 
@@ -181,18 +211,22 @@
 		We moved to fetch each individual item from the API as needed. For this we had to develop a more robust system of making API calls from the application. But that can have it’s own section. I found this to be a much more manageable than the Android SQLite local database. Largely owing to the fact that the new system was built by me, to be intuitive to me.
 		The final change to data storage was an update on the API. Updating the app to match the API update was much smoother than the change from local to remote storage. Any changes were mostly contained to the API handler class. The storing and displaying of the information was largely the same.
 		<br>
+		<br>
 		
 		The error handling of the scanner had to be able to deal with input that was not a valid ID, and ID’s that were not associated.
 		Item IDs are stored as integers so to check for a valid ID I simply had to check if the input was an integer.
 		After that, the app needs to make the API call for the ID to check if there is an associated item. Initially I passed the ID to the item details view, then made the API call. But for smoother error handling I moved the API call back to the scanner, and passed the resultant data onto the details activity. This means that if the API call does not return an item, the error handling is contained to the scanner. This lets me make the item details screen much cleaner in implementation, and a nicer experience for the user. As it is not required to deal with bad API calls.
 		<br>
+		<br>
 		
 		After the scanner was implemented, there were a few final bugs resolve.
+		<br>
 		<br>
 		
 		The camera feed would appear stretched on some devices
 		The camera had poor focus, making it difficult to detect QR codes
 		The app would often launch many item detail screens, breaking navigation 
+		<br>
 		<br>
 		
 		In the layout of the scanner, the camera feed does not take up the entire display. This is to leave room for the controls. But this means the camera feed component is squished to fit the layout. On some devices devices this creates a noticeable stretching effect on camera feed.
@@ -205,17 +239,23 @@
 		It can also be used overlay a component over images. This helps save space, since the edges of the images are generally not the point of focus anyway.
 		In this example I used Relative Layout layers to have a fullscreen component of the camera feed, while including other components in the layout.
 		<br>
+		<br>
 		
 		The camera feed was poorly focused. This didn’t look very good for the user, and it made the app worse at detecting QR codes. To resolve this we changed the parameters of the camera component to enable auto focus. This made the image much clearer.
+		<br>
 		<br>
 		
 		When the app detects a QR code, it open an asynchronous thread to fetch the identified item from the API. When the item is returned, the app opens the Item Details Activity. In this system, the app can open multiple API threads at once. When these return, each one open it’s own Item Details Activity. This puts copies onto the Activity stack and ruins navigation. When the user presses back, they are sent to the previous copy.
 		I found similar problems to be common. To resolve this I put a toggle on the scanner detection. When the scanner detects a QR code, I block it from detecting additional codes. The scanner is unblocked if the API call return no item, and when the Scanner Activity is resumed.
 		<br>
-
-		<h2>API handler</h2>
 		<br>
+	</p>
+
+	<h2>API handler</h2>
+	
+	<p>
 		The initial version of the application would sync a local database to the API at launch. We wanted more control over API calls from the app so I developed  a class to handle API activity.
+		<br>
 		<br>
 		
 		The class has function to retrieve Items and Collections, as a complete list or by ID
@@ -223,41 +263,51 @@
 		The system I used for the API handler has pairs of function. A function to get the data, and another to receive the data. For example to get a single item from the database the client calls the API Handler function GetItem. When the API Handler receive the data it calls the client's function ReceiveItem to pass the data over.
 		The API Handler had to be generic so it could be reused in other components of the app. I put the receive data function into a Java interface. The API Handler stores it’s client as an instance of the interface, so any class can use the API.
 		<br>
-
-		<h2>Item Details View</h2>
 		<br>
+	</p>
+	
+	
+	<h2>Item Details View</h2>
+	
+	<p>
+	
+	</p>
 		
-		<h2>Menu System</h2>
-		<br> 
-
+		
+	<h2>Menu System</h2>
+	
+	<p> 
 		The first iteration of the app implemented the default Android Action Bar menu. As an inbuilt function of Android, it was simple to develop and modify. But as a trade off the Action Bar menu lacks customizability. Besides being overly rigid, I have a few other problems with this menu system.
 		<br>
-
+		<br>
+		
 		Firstly, it wastes screen space. When designing Android layouts I like to disable the Action Bar. I prefer to save the extra space, and just integrate the controls into the main layout. But the initial version off the app used the Action Bar menu, so we couldn’t disable it. On the Main Map screen, I wanted the map to cover as large an area as possible. So it was annoying to have a opaque bar over the top of the screen.
+		<br>
 		<br>
 
 		This menu was also poorly styled. It’s like was designed to pack as many things into a small an area as possible. I wanted the design our own menu for the app so the controls could be spaced out to and made clearer to the user.
 		<br>
+		<br>
 
 		We also found that this feature had poor compatibility. The system would display the different  sub menus as icons on the bar. But the smaller your devices screen was, the less icons fit. The system shows as many icons as will fit, as the rest are put into a catch-all list. This was confusing to me when I first used the app on a different device and the menu layout had changed.
 		<br>
+		<br>
+		
 		We tested the app on a device with a small screen, running an old version of Android. The menu functioned strangely on this device. When expanding the menu it would appear in the bottom corner of the screen, instead of the top. Also the menu was poorly fitted to the smaller screen size.
+		<br>
 		<br>
 
 		The next menu system was a separate menu screen I developed. This had it’s own full screen layout. This system let us have to menu fill the entire surface of the screen, and was very customizable. It also separated the menu for the Main Map so the mao could fill the full screen.
 		<br>
+		<br>
 
 		The final version of the menu was a similar system. But this menu is overlaid onto the map instead of being a different screen. I like this version more because being able to see the map in the background gives a better sense of navigation. Also the style in improved.
 		<br>
+		<br>
 
 		I think each iteration of the menu system marks an incremental improvement, although it was annoying in the moment to have to tear up and redesign sections of the app. I’d say it was worth the exercise for working on my first project of this scale. We didn’t really have the experience to foresee the many the problems going into the project. But in future I’d like to get a stronger plan down so I can avoid major changes during development.
-		<br>
-		
+		<br>	
+		<br>	
 	</p>
 	
-	
-
-	
-	
-	
-</div><!-- /.blurb -->
+</div>
