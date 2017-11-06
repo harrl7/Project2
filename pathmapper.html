@@ -19,9 +19,13 @@
 		
 		Path Mapper is a companion app for the Dunedin Botanic Gardens. The concept of the project is a digital advancement of a tourist brochure. With points of interest marked on a map to help guests navigate, and extended information on various items within the garden.
 		<br>
+		<br>
 
 		An early prototype of this project used the onboard GPS to detect nearby items, and display information when the user approached a point of interest. This was found to be inconsistent because of the inaccuracy of GPS. Therefore this functionality had been practically abandoned when my team began work on the project.
+		<br>
+		
 		As a substitute, it had been suggested that QR codes be used to identify items in the gardens. Negating the impact of inaccurate GPS service, while creating a clear link between the application and the physical items in the gardens.
+		<br>
 		<br>
 		
 		The initial specifications for the project were:
@@ -39,42 +43,50 @@
 
 	<p>
 		<h2>Working on an Existing Project</h2>
-		<br>
+		
+	
 		Had to learn structure of  old version. Some things were not implemented, hard to tell what these were for.
 		Easier to increment upon existing work. Large task to design large scale project
 		Get stuck thinking the new version has to use the design of the old version. Not actively trying to find new solutions.
+		<br>
 		<br>
 		
 		My project group picked up this project from where the previous year’s group left off. I had to read over the project and experiment with the application to familiarise myself with the existing codebase. I could discern the the broad structure of the app, but the details of the inner workings were difficult to comprehend. 
 		The app used many features of Android that I have limited experience such as the native SQLite database, the action bar menu system, and a heavy reliance on google maps. 
 		Also the original version we received had components that were unimplemented or only partially completed. Which made it more difficult to piece the project together and form a solid understanding of how the project functioned.
 		<br>
+		<br>
 		
 		The advantage of working upon an existing project is that we had a strong starting point to build upon. On a project of substantial scale, I find it it much easier to increment upon an existing design. It is quite daunting just to pick out where to start, when building a large project from scratch.
+		<br>
 		<br>
 
 		I found that I would become unnecessarily attached to the existing design choices of the previous development group. When incrementing upon an existing design, I am not actively looking to find new solutions. I would default into thinking that I had to continue in the same direction as the previous group, even though I was aware that my group would most likely be updating the design of the project.
 		<br>
+		<br>
 		
 		For example in the original version of the project that we received, the app would sync to the remote database on launch. In the initial startup procedure, the app makes an API call to receive the entirety of the information stored in the database. The information is cloned into a local database, before continuing on to the main functionality of the app. This means the app can function in isolation after launch, and does not need to make further API calls. But this method is also wasteful.
+		<br>
 		<br>
 		
 		Another example is the Android action bar menu. In the original version navigation was controlled entirely through this system. I did not really like this system, but it was already implemented and there was some novelty value to it as I had never used this feature of android in previous projects. So again we defaulted to continuing on with the choices of the previous project team.
 		<br>
+		<br>
 		
 		I became conscious of this when the design choices were questioned by people external the project. I couldn’t think of a justification much beyond “That’s just how it’s always been”. This helped me re-establish the importance of the design process. Increment on ideas and note what is working well, and what doesn’t work well. 
-		<br>
 	</p>
 
 	<p>
-		Scale
+		<h2> Scale </h2>
+		
 		2 teams - api / android app
 		Full 5 project team working on project
 		Long times, months
-		<br>
-		
-		<h2>Sprawling Design</h2>
-		<br>
+	</p>
+	
+	<p>	
+		<h2> Sprawling Design </h2>
+
 		The primary components of the app are the Main Map, the Scanner, the Item Details screen, and somewhere in there needs to be the interface for setting and storing options. All these components lead to and draw from the others. It was major task throughout the project to fit all the desired features into the application. We had to think about maintaining a clean, modular architecture. And also design a user interface the was functionally intuitive, and visually appealing.
 		<br>
 		
@@ -91,9 +103,10 @@
 		The overlay map just looks terrible. The resolution needed to overlay an image onto a zoomable map the size of the Botanic Gardens is quite high. So high that things started breaking. So we had to compromise by downscaling the image.
 		But getting the overlay running was a significant drain on resources. Finding the image resolution that would consistently run without crashing. Then the image had to perfectly aligned with the map. And whenever the overlay is activated the map must be styled to remove the labels that Google Maps uses to mark locations, and then masked since the image does not cover the user’s full field of view. And after all that everyone just used the satellite map style instead.
 		These features bloated the app, in terms of both user interface, and the internals of the software. Cutting these would not have significantly impacted the core functionality of the app. But would of let us streamline the design, and further polish the end product.
-		<br>
-		
-		<h2>Scanner</h2>
+	</p>
+
+	<p>
+		<h2> Scanner </h2>
 		<br>
 		
 		<!-- -->
