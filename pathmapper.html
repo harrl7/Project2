@@ -22,7 +22,7 @@
 		<br>
 		<br>
 
-		An early prototype of this project used the onboard GPS to detect nearby items, and display information when the user approached a point of interest. This was found to be inconsistent because of the inaccuracy of GPS. Therefore this functionality had been practically abandoned when my team began work on the project.
+		An early prototype of this project used the onboard GPS to detect nearby items and display information when the user approached a point of interest. This was found to be inconsistent because of the inaccuracy of GPS. Therefore this functionality had been practically abandoned when my team began work on the project.
 		<br>
 		
 		As a substitute, it had been suggested that QR codes be used to identify items in the gardens. Negating the impact of inaccurate GPS service, while creating a clear link between the application and the physical items in the gardens.
@@ -34,7 +34,7 @@
 	
 	<ol>	
 		<li> API web service to deliver information on the Botanic Gardens </li>
-		<li> An Android companion app for use by guest of the gardens, with features of:
+		<li> An Android companion app for use by guests of the gardens, with features of:
 			<ul>
 				<li> A map screen, displaying points of interest
 				<li> A scanner to read barcodes that identify items in the gardens
@@ -51,13 +51,15 @@
 	<h2>Working on an Existing Project</h2>
 	
 	<p>	
-		My project group picked up this project from where the previous year’s group left off. I had to read over the project and experiment with the application to familiarise myself with the existing codebase. I could discern the the broad structure of the app, but the details of the inner workings were difficult to comprehend. 
+		My project group picked up this project from where the previous year’s group left off. I had to read over the project and experiment with the application to familiarise myself with the existing codebase. I could discern the  broad structure of the app, but the details of the inner workings were difficult to comprehend. 
 		The app used many features of Android that I have limited experience such as the native SQLite database, the action bar menu system, and a heavy reliance on google maps. 
-		Also the original version we received had components that were unimplemented or only partially completed. Which made it more difficult to piece the project together and form a solid understanding of how the project functioned.
+		<br>
+		
+		Also, the original version we received had components that were unimplemented or only partially completed. Which made it more difficult to piece the project together and form a solid understanding of how the project functioned.
 		<br>
 		<br>
 		
-		The advantage of working upon an existing project is that we had a strong starting point to build upon. On a project of substantial scale, I find it it much easier to increment upon an existing design. It is quite daunting just to pick out where to start, when building a large project from scratch.
+		The advantage of working on an existing project is that we had a strong starting point to build upon. On a project of substantial scale, I find it much easier to increment upon an existing design. It is quite daunting just to pick out where to start when building a large project from scratch.
 		<br>
 		<br>
 
@@ -69,11 +71,11 @@
 		<br>
 		<br>
 		
-		Another example is the Android action bar menu. In the original version navigation was controlled entirely through this system. I did not really like this system, but it was already implemented and there was some novelty value to it as I had never used this feature of android in previous projects. So again we defaulted to continuing on with the choices of the previous project team.
+		Another example is the Android action bar menu. In the original version, navigation was controlled entirely through this system. I did not really like this system, but it was already implemented and there was some novelty value to it as I had never used this feature of Android in previous projects. So again we defaulted to continuing on with the choices of the previous project team.
 		<br>
 		<br>
 		
-		I only noticed what I was doing wrong when the design choices were questioned by people external the project. I didn’t understand the justification for the previous development group’s choices . This helped me re-establish the importance of the design process. I now look at my projects through a different lens. I try to look for what is working well, and what doesn’t work well. I am more critical of my own work, which I hope will allow me to produce better results.
+		I only noticed what I was doing wrong when the design choices were questioned by people external the project. I didn’t understand the justification for the previous development group’s choices. This helped me re-establish the importance of the design process. I now look at my projects through a different lens. I try to look for what is working well, and what doesn’t work well. I am more critical of my own work, which I hope will allow me to produce better results.
 		<br>
 		<br>
 	</p>
@@ -83,23 +85,23 @@
 	<h2> Scale </h2>
 	
 	<p>	
-		Path Mapper is the largest scale project I have worked on. A total of 5 students worked on development of the project this semester. The project has extended the duration of several months. Moving up to a project of this scale for the first time has taught me to better manage teamwork.
+		Path Mapper is the largest scale project I have worked on. A total of 5 students worked on the development of the project this semester. The project has extended the duration of several months. Moving up to a project of this scale for the first time has taught me to better manage teamwork.
 		<br>
 		<br>
 		
-		To develop this project my team was split into two subgroups. Two students developed the web API, and another three developed the Android front end application.
+		To develop this project my team was split into two subgroups. Two students developed the web API, and another three developed the Android front-end application.
 		<br>
 		<br>
 
-		I was not prepared for the level of communication needed to manage the development group. I viewed the project as a collection of independent modules. Similar class practicals, small tasks completed by individuals. For example I began with working on the QR code scanner, while another student worked on plotting map markers. How all of the components would fit together was not an immediate concern.
+		I was not prepared for the level of communication needed to manage the development group. I viewed the project as a collection of independent modules. Similar class practicals, small tasks completed by individuals. For example, I began with working on the QR code scanner, while another student worked on plotting map markers. How all of the components would fit together was not an immediate concern.
 		<br>
 		<br>
 
-		Building the app in this manner didn’t incentivise us to maintain strong communication early on. Often I didn’t really understand what other people were doing.This worked fine as a short term solution, but caused trouble when it came time to merge the separate components together.
+		Building the app in this manner didn’t incentivise us to maintain strong communication early on. Often I didn’t really understand what other people were doing. This worked fine as a short-term solution but caused trouble when it came time to merge the separate components together.
 		<br>
 		<br>
 
-		As a consequence of poor communication in early development; everyone has a very strong understanding of the components they developed, but no one understands how the whole app functions. Once each of the components had been completed, much of the later work was spent piecing everything together. It was very difficult to debug errors in the interaction between modules. In contrast to early development, merging all the components together encouraged strong communication. Group cohesion was very high during this time.
+		As a consequence of poor communication in early development; everyone has a very strong understanding of the components they developed, but no one understands how the whole app functions. Once each of the components had been completed, much of the later work was spent piecing everything together. It was very difficult to debug errors in the interaction between modules. In contrast to early development, merging all the components together encouraged strong communication. Group cohesion was very high at this time.
 		<br>
 		<br>
 
@@ -114,20 +116,20 @@
 	<h2> Navigation </h2>
 	
 	<p>	
-		The primary components of the app are the Main Map, the Scanner, the Item Details screen, and somewhere in there needs to be the interface for setting and storing options. All these components lead to and draw from the others. It was major task throughout the project to fit all the desired features into the application. We had to think about maintaining a clean, modular architecture. And also design a user interface the was functionally intuitive, and visually appealing.
+		The primary components of the app are the Main Map, the Scanner, the Item Details screen, and somewhere in there needs to be the interface for setting and storing options. All these components lead to and draw from the others. It was major task throughout the project to fit all the desired features into the application. We had to think about maintaining a clean, modular architecture. And also design a user interface the was functionally intuitive and visually appealing.
 		<br>
 		<br>
 		
 		There is no tidy linear order to the navigation, it’s more like a messy interconnected web.
-		From the Map you move on to the Scanner. The leads to Item Details. The Map can also lead to Item Details through an item marker on the map, unless you're offline. Sometimes Item Details needs to display information on a collection, so it needs the functionality to receive a collection as well as an item. Item Details can pass back information to the map to mark the item on the map. At one point there was another map screen as well. Every time you return to Main Map the options system has to keep the map styling and overlays the same.
+		From the map you move on to the scanner. The scanner leads to Item Details. The Map can also lead to Item Details through an item marker on the map unless you're offline. Sometimes Item Details needs to display information on a collection, so it needs the functionality to receive a collection as well as an item. Item Details can pass back information to the map to mark the item on the map. At one point there was another map screen as well. Every time you return to Main Map the options system has to keep the map styling and overlays the same.
 		<br>
 		<br>
 		
-		It’s not the most absolutely ambitious project ever undertaken. But the most complex projects I’ve done before this would have no more than 3 screens, with strictly ordered linear navigation. So it was a challenge not only to implement this, but also to present in a way that was coherent to the user.
+		The most complex projects I’ve done before this would have no more than 3 screens, with strictly ordered linear navigation. So it was a challenge not only to implement this but also to present in a way that was coherent to the user.
 		<br>
 		<br>
 		
-		I’m overall quite satisfied with what we did with navigation on this project. But development was often rushed. And we would regularly reorganise the structure of the app to try and fit everything in. Developing the application, I felt like we were cramming in too much. When I see Android as inherently a lighter platform. I would of prefered a more streamlined design. 
+		I’m overall quite satisfied with what we did with navigation on this project. But development was often rushed. And we would regularly reorganise the structure of the app to try and fit everything in. Developing the application, I felt like we were cramming in too much. When I see Android as inherently a lighter platform. I would have prefered a more streamlined design. 
 		This doesn’t even mean we would remove key features. Just trim the fat.
 		<br>
 		<br>
@@ -135,7 +137,7 @@
 		For example offline functionality, and the overlay map.
 		<br>
 		
-		Running the app offline breaks the connection to the API, and Google Maps has to run from cached data. All greatly reducing the functionality of the app. Also I don’t at all consider it to be unreasonable to require that user’s have an internet connection. But the inclusion of this forced us to cram in the functionality to handle running the app without an internet connection.
+		Running the app offline breaks the connection to the API, and Google Maps has to run on cached data. All greatly reducing the functionality of the app. Also, I don’t at all consider it to be unreasonable to require that user’s have an internet connection. But the inclusion of this forced us to cram in the functionality to handle running the app without an internet connection.
 		<br>
 		
 		The overlay map just looks terrible. The resolution needed to overlay an image onto a zoomable map the size of the Botanic Gardens is quite high. So high that things started breaking. So we had to compromise by downscaling the image.
