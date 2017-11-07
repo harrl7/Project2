@@ -201,21 +201,26 @@
 	</table>
 		
 	<p>	
-		For my first development task I decided to implement the scanner. The scanner screen is an Activity that contains a camera feed. The Activity processes the camera feed to detect QR codes. When a valid QR code is detected, the user is forwarded to the item details screen to view information on the associated item.
+		For my first development task, I decided to implement the scanner. The scanner screen is an Activity that contains a camera feed. The Activity processes the camera feed to detect QR codes. When a valid QR code is detected, the user is forwarded to the item details screen to view information on the associated item.
 		<br>
 		<br>
 		
-		Implementing the scanner was a clear starting point to me. I had used a QR scanner functionality in previous work. Because it was a newly decided on feature, it was not yet implemented in the application. So the current build was missing a core structural component. Even a prototypical implementation of the scanner would allow us to begin practical testing of the app. To gain a better idea of the user experience.
+		Implementing the scanner was a clear starting point for me. I had used a QR scanner functionality in previous work. Because it was a newly decided on feature, it was not yet implemented in the application. So the current build was missing a core structural component. Even a prototypical implementation of the scanner would allow us to begin practical testing of the app. To gain a better idea of the user experience.
 		<br>
 		<br>
 		
 		To the user, the process of using the QR scanner functionality is:
-		Navigate from the main map screen to the QR scanner 
-		Detect and read the value of a QR code
-		Forward the user the the item details screen
-		<br>
-		<br>
-		
+	</p>
+	
+	<ol>
+		<li> Navigate from the main map screen to the QR scanner </li>
+		<li> Detect and read the value of a QR code </li>
+		<li> Forward the user the item details screen </li>
+	</ol>
+	
+	<br>
+	
+	<p>	
 		Navigating to the scanner screen is simple. The Android framework contains the functionality for reading QR codes. Getting from the data of the QR code to the item detail screen was the most involved part.
 		<br>
 		<br>
@@ -226,55 +231,69 @@
 		
 		The development of the scanner component was elongated by changes to the data storage system of the project. 
 		The initial system was to sync a local database to the remote database on launch, then the app would draw from the local database. This system was dropped because it was inefficient to download and store the entire database.
-		We moved to fetch each individual item from the API as needed. For this we had to develop a more robust system of making API calls from the application. But that can have it’s own section. I found this to be a much more manageable than the Android SQLite local database. Largely owing to the fact that the new system was built by me, to be intuitive to me.
-		The final change to data storage was an update on the API. Updating the app to match the API update was much smoother than the change from local to remote storage. Any changes were mostly contained to the API handler class. The storing and displaying of the information was largely the same.
 		<br>
 		<br>
 		
-		The error handling of the scanner had to be able to deal with input that was not a valid ID, and ID’s that were not associated.
+		We moved to fetch each individual item from the API as needed. For this, we had to develop a more robust system of making API calls from the application. But that can have its own section. I found this to be a much more manageable than the Android SQLite local database. Largely owing to the fact that the new system was built by me, to be intuitive to me.
+		<br>
+		<br>
+		
+		The final change to data storage was an update on the API. Updating the app to match the API update was much smoother than the change from local to remote storage. Any changes were mostly contained in the API handler class. The storing and displaying of the information was largely the same.
+		<br>
+		<br>
+		
+		The error handling of the scanner had to be able to deal with input that was not a valid ID, and ID’s that were not associated with any item.
+		<br>
+		
 		Item IDs are stored as integers so to check for a valid ID I simply had to check if the input was an integer.
-		After that, the app needs to make the API call for the ID to check if there is an associated item. Initially I passed the ID to the item details view, then made the API call. But for smoother error handling I moved the API call back to the scanner, and passed the resultant data onto the details activity. This means that if the API call does not return an item, the error handling is contained to the scanner. This lets me make the item details screen much cleaner in implementation, and a nicer experience for the user. As it is not required to deal with bad API calls.
+		After that, the app needs to make the API call for the ID to check if there is an associated item. Initially, I passed the ID to the item details view, then made the API call. But for smoother error handling I moved the API call back to the scanner and passed the resultant data onto the details activity. This means that if the API call does not return an item, the error handling is contained in the scanner. This lets me make the item details screen much cleaner in implementation and a nicer experience for the user. As it is not required to deal with bad API calls.
 		<br>
 		<br>
 		
 		After the scanner was implemented, there were a few final bugs resolve.
+	</p>
+	
+	<ol>
+		<li> The camera feed would appear stretched on some devices </li>
+		<li> The camera had poor focus, making it difficult to detect QR codes </li>
+		<li> The app would often launch many item detail screens, breaking navigation  </li>
+	</ol>
+	
+	<br>
+	
+	<p>
+		In the layout of the scanner, the camera feed does not take up the entire display. This is to leave room for the controls. But this means the camera feed component is squished to fit the layout. On some devices this creates a noticeable stretching effect on the camera feed.
 		<br>
 		<br>
 		
-		The camera feed would appear stretched on some devices
-		The camera had poor focus, making it difficult to detect QR codes
-		The app would often launch many item detail screens, breaking navigation 
-		<br>
-		<br>
-		
-		In the layout of the scanner, the camera feed does not take up the entire display. This is to leave room for the controls. But this means the camera feed component is squished to fit the layout. On some devices devices this creates a noticeable stretching effect on camera feed.
-		<br>
-		
-		To Resolve this I broke up the layout so that the camera feed covers the entire display and the controls are on a separate layer on top. In implementation, I did this by moving from a Linear Layout to a Relative Layout.
+		To Resolve this I broke up the layout so that the camera feed covers the entire display and the controls are on a separate layer on top. In the implementation, I did this by moving from a Linear Layout to a Relative Layout.
 		<br>
 		<br>
 		
 		I didn’t like to use Relative Layout’s for a while, but I’ve started to use them a bit more. When I first started to develop in Android, I would only use Relative. It’s the default, and it makes sense when you’re just getting started. You just drop things where you want them to go.
 		<br>
-		
-		Once I had more a bit more experience and knew what I was doing, I developed a strong preference for Linear. In complex layouts, Relative has a tendency to tie itself into knots. Components are placed relative to each other, so any slight change can break everything. Linear is much more clean and mechanical. The whole layout is a vertical list of things, perfectly aligned. If you want more complexity, make one of the things a horizontal list of things. Finish it off with some margins and colour. This gives an intuitive, hierarchical structure to the layout. It’s so efficient and tidy that I refused to use Relative. But I realise now that is not entirely a fair comparison.
 		<br>
 		
-		I now have a better understanding the roles that Linear and Relative layouts serve. Relative is used to layer components. I wasn’t thinking of how to incorporate that feature into my layout designs. I would put all the components into one flat layer. This works fine for the simple static layouts that I was doing. But from experience I learnt some new techniques to create better layouts with layers. 
-		<br>
-		
-		One thing I like to do is to put a progress bar in it’s own layer on top of the layout. This lets me hide and show the component without leaving a hole in the layout.
-		It can also be used overlay a component over images. This helps save space, since the edges of the images are generally not the point of focus anyway.
-		In this example I used Relative Layout layers to have a fullscreen component of the camera feed, while including other components in the layout.
+		Once I had more a bit more experience and knew what I was doing, I developed a strong preference for Linear. In complex layouts, Relative has a tendency to tie itself into knots. Components are placed relative to each other, so any slight change can break everything. Linear is much cleaner and more mechanical. The whole layout is a vertical list of things, perfectly aligned. If you want more complexity, make one of the things a horizontal list of things. Finish it off with some margins and colour. This gives an intuitive, hierarchical structure to the layout. It’s so efficient and tidy that I refused to use Relative. But I realise now that is not entirely a fair comparison.
 		<br>
 		<br>
 		
-		The camera feed was poorly focused. This didn’t look very good for the user, and it made the app worse at detecting QR codes. To resolve this we changed the parameters of the camera component to enable auto focus. This made the image much clearer.
+		I now have a better understanding the roles that Linear and Relative layouts serve. Relative is used to layer components. I wasn’t thinking of how to incorporate that feature into my layout designs. I would put all the components into one flat layer. This works fine for the simple static layouts that I was doing. But from experience, I learnt some new techniques to create better layouts with layers. 
 		<br>
 		<br>
 		
-		When the app detects a QR code, it open an asynchronous thread to fetch the identified item from the API. When the item is returned, the app opens the Item Details Activity. In this system, the app can open multiple API threads at once. When these return, each one open it’s own Item Details Activity. This puts copies onto the Activity stack and ruins navigation. When the user presses back, they are sent to the previous copy.
-		I found similar problems to be common. To resolve this I put a toggle on the scanner detection. When the scanner detects a QR code, I block it from detecting additional codes. The scanner is unblocked if the API call return no item, and when the Scanner Activity is resumed.
+		One thing I like to do is to put a progress bar on its own layer on top of the layout. This lets me hide and show the component without leaving a hole in the layout.
+		It can also be used overlay a component over images. This helps save space since the edges of the images are generally not the point of focus anyway.
+		In this example, I used Relative Layout layers to have a fullscreen component of the camera feed while including other components in the layout.
+		<br>
+		<br>
+		
+		The camera feed was poorly focused. This didn’t look very good for the user, and it made the app worse at detecting QR codes. To resolve this we changed the parameters of the camera component to enable autofocus. This made the image much clearer.
+		<br>
+		<br>
+		
+		When the app detects a QR code, it opens an asynchronous thread to fetch the identified item from the API. When the item is returned, the app opens the Item Details Activity. In this system, the app can open multiple API threads at once. When these return, each one opens it’s own Item Details Activity. This puts copies onto the Activity stack and ruins navigation. When the user presses back, they are sent to the previous copy.
+		I found similar problems to be common. To resolve this I put a toggle on the scanner detection. When the scanner detects a QR code, I block it from detecting additional codes. The scanner is unblocked if the API call returns no item, and when the Scanner Activity is resumed.
 		<br>
 		<br>
 	</p>
@@ -286,9 +305,11 @@
 		<br>
 		<br>
 		
-		The class has function to retrieve Items and Collections, as a complete list or by ID
+		The class has a function to retrieve Items and Collections, as a complete list or by ID
 		Call, items, collections, all, by id.
-		The system I used for the API handler has pairs of function. A function to get the data, and another to receive the data. For example to get a single item from the database the client calls the API Handler function GetItem. When the API Handler receive the data it calls the client's function ReceiveItem to pass the data over.
+		<br>
+		
+		The system I used for the API handler has pairs of function. A function to get the data, and another to receive the data. For example to get a single item from the database the client calls the API Handler function GetItem. When the API handler receives the data it calls the client's function ReceiveItem to pass the data over.
 		The API Handler had to be generic so it could be reused in other components of the app. I put the receive data function into a Java interface. The API Handler stores it’s client as an instance of the interface, so any class can use the API.
 		<br>
 		<br>
@@ -309,31 +330,31 @@
 		<br>
 		<br>
 		
-		Firstly, it wastes screen space. When designing Android layouts I like to disable the Action Bar. I prefer to save the extra space, and just integrate the controls into the main layout. But the initial version off the app used the Action Bar menu, so we couldn’t disable it. On the Main Map screen, I wanted the map to cover as large an area as possible. So it was annoying to have a opaque bar over the top of the screen.
+		Firstly, it wastes screen space. When designing Android layouts I like to disable the Action Bar. I prefer to save the extra space, and just integrate the controls into the main layout. But the initial version of the app used the Action Bar menu, so we couldn’t disable it. On the Main Map screen, I wanted the map to cover as large an area as possible. So it was annoying to have an opaque bar over the top of the screen.
 		<br>
 		<br>
 
-		This menu was also poorly styled. It’s like was designed to pack as many things into a small an area as possible. I wanted the design our own menu for the app so the controls could be spaced out to and made clearer to the user.
+		This menu was also poorly styled. It’s like it was designed to pack as many things into a small an area as possible. I wanted the design our own menu for the app so the controls could be spaced out and displayed clearly to the user.
 		<br>
 		<br>
 
-		We also found that this feature had poor compatibility. The system would display the different  sub menus as icons on the bar. But the smaller your devices screen was, the less icons fit. The system shows as many icons as will fit, as the rest are put into a catch-all list. This was confusing to me when I first used the app on a different device and the menu layout had changed.
+		We also found that this feature had poor compatibility. The system would display the different submenus  as icons on the bar. But the smaller your devices screen was, the fewer icons fit. The system shows as many icons as will fit, as the rest are put into a catch-all list. This was confusing to me when I first used the app on a different device and the menu layout had changed.
 		<br>
 		<br>
 		
-		We tested the app on a device with a small screen, running an old version of Android. The menu functioned strangely on this device. When expanding the menu it would appear in the bottom corner of the screen, instead of the top. Also the menu was poorly fitted to the smaller screen size.
+		We tested the app on a device with a small screen, running an old version of Android. The menu functioned strangely on this device. When expanding the menu it would appear in the bottom corner of the screen, instead of the top. Also, the menu was poorly fitted to the smaller screen size.
 		<br>
 		<br>
 
-		The next menu system was a separate menu screen I developed. This had it’s own full screen layout. This system let us have to menu fill the entire surface of the screen, and was very customizable. It also separated the menu for the Main Map so the mao could fill the full screen.
+		The next menu system was a separate menu screen I developed. This had its own fullscreen layout. This system allowed us to have to menu fill the entire surface of the screen and was very customizable. It also separated the menu for the main map so the map could fill the full screen.
 		<br>
 		<br>
 
-		The final version of the menu was a similar system. But this menu is overlaid onto the map instead of being a different screen. I like this version more because being able to see the map in the background gives a better sense of navigation. Also the style in improved.
+		The final version of the menu was a similar system. But this menu is overlaid onto the map instead of being a different screen. I like this version more because being able to see the map in the background gives a better sense of navigation.
 		<br>
 		<br>
 
-		I think each iteration of the menu system marks an incremental improvement, although it was annoying in the moment to have to tear up and redesign sections of the app. I’d say it was worth the exercise for working on my first project of this scale. We didn’t really have the experience to foresee the many the problems going into the project. But in future I’d like to get a stronger plan down so I can avoid major changes during development.
+		I think each iteration of the menu system marks an incremental improvement, although it was annoying in the moment to have to tear up and redesign sections of the app. I’d say it was worth the exercise for working on my first project of this scale. We didn’t really have the experience to foresee the many the problems going into the project. But in future, I’d like to get a stronger plan down so I can avoid major changes during development.
 		<br>	
 		<br>	
 	</p>
