@@ -9,7 +9,7 @@
 		<li> Navigation  </li>
 		<li> Scanner </li>
 		<li> API handler </li>
-		<li> Item Details View </li>
+		<! -- <li> Item Details View </li> -- >
 		<li> Menu System </li>
 	</ol>
 	<br>
@@ -221,11 +221,7 @@
 	<br>
 	
 	<p>	
-		Navigating to the scanner screen is simple. The Android framework contains the functionality for reading QR codes. Getting from the data of the QR code to the item detail screen was the most involved part.
-		<br>
-		<br>
-		
-		The QR codes would store an ID number for the associated item
+		Navigating to the scanner screen is simple. The Android framework contains the functionality for reading QR codes. Getting from the data of the QR code to the item detail screen was the most difficult part.
 		<br>
 		<br>
 		
@@ -301,26 +297,32 @@
 	<h2>API handler</h2>
 	
 	<p>
-		The initial version of the application would sync a local database to the API at launch. We wanted more control over API calls from the app so I developed  a class to handle API activity.
+		The initial version of the application would sync a local database to the API at launch. We wanted more control over API calls from the app so I developed a class to handle API activity. 
 		<br>
+
+		The API handler class has functions to retrieve Items and Collections, as a complete list or by ID.
+		<br>
+		<br>
+
+		The system I used for the API handler has paired functions. A function to get the data, and another to receive the data. 
 		<br>
 		
-		The class has a function to retrieve Items and Collections, as a complete list or by ID
-		Call, items, collections, all, by id.
-		<br>
-		
-		The system I used for the API handler has pairs of function. A function to get the data, and another to receive the data. For example to get a single item from the database the client calls the API Handler function GetItem. When the API handler receives the data it calls the client's function ReceiveItem to pass the data over.
-		The API Handler had to be generic so it could be reused in other components of the app. I put the receive data function into a Java interface. The API Handler stores it’s client as an instance of the interface, so any class can use the API.
+		For example, to get a single item from the database, the client calls the API Handler function GetItem(). When the API handler receives the data it calls the client's function ReceiveItem() to pass the data back to the client. 
 		<br>
 		<br>
+
+		The API Handler had to be generic so it could be reused in other components of the app. I put the receive data function into a Java interface. The API Handler stores it’s client as an instance of the interface, so any class can use the API. 
+		<br>
+		<br>
+
 	</p>
 	
 	
-	<h2>Item Details View</h2>
+	<!-- <h2>Item Details View</h2>
 	
 	<p>
 	
-	</p>
+	</p> -->
 		
 		
 	<h2>Menu System</h2>
