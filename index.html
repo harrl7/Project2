@@ -80,10 +80,6 @@ title: Liam Harris
 			{		
 				$('#nav_links').addClass("active");
 			}
-			else if (scrollTop >= storyTop) 
-			{		
-				$('#nav_story').addClass("active");
-			}
 			else if (scrollTop >= timelineTop) 
 			{		
 				$('#nav_timeline').addClass("active");
@@ -107,6 +103,10 @@ title: Liam Harris
 			else
 			{
 				$('#nav_home').addClass("active");
+			}
+			else if (scrollTop >= storyTop) 
+			{		
+				$('#nav_story').addClass("active");
 			}
 		})
 		
